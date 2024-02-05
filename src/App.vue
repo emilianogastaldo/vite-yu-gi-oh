@@ -1,11 +1,16 @@
 <script>
+import AppMain from './components/AppMain.vue'
 export default {
-  name: 'Pokedex'
+  name: 'Pokedex',
+  components: {
+    AppMain
+  }
 };
 </script>
 
 <template>
-  <h1 class="text-danger"> CIAO </h1>
+  <h1 class="text-danger"> Pokedex </h1>
+  <AppMain />
 </template>
 
 <style lang="scss" scoped>

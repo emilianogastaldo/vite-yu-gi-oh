@@ -2,13 +2,15 @@
 import axios from 'axios';
 const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons';
 import AppMain from './components/AppMain.vue';
-import { store } from './data/store';
+import AppHeader from './components/AppHeader.vue';
+import { store, pokemonTypes } from './data/store';
+
 export default {
   name: 'Pokedex',
-
-  components: {
-    AppMain
-  },
+  components: { AppMain, AppHeader },
+  data: () => ({
+    pokemonTypes
+  }),
   created() {
     axios.get(endpoint).then(res => {
       store.listPokemon = res.data.docs;
@@ -18,8 +20,10 @@ export default {
 </script>
 
 <template>
-  <h1 class="text-danger"> Pokedex </h1>
-  <AppMain />
+  <div class="container">
+    <AppHeader :types="pokemonTypes" />
+    <AppMain />
+  </div>
 </template>
 
 <style lang="scss" scoped>

@@ -11,10 +11,15 @@ export default {
   data: () => ({
     pokemonTypes
   }),
+  methods: {
+    fecthPokemon(url) {
+      axios.get(url).then(res => {
+        store.listPokemon = res.data.docs;
+      })
+    }
+  },
   created() {
-    axios.get(endpoint).then(res => {
-      store.listPokemon = res.data.docs;
-    })
+    this.fecthPokemon(endpoint);
   }
 };
 </script>

@@ -16,6 +16,15 @@ export default {
       axios.get(url).then(res => {
         store.listPokemon = res.data.docs;
       })
+    },
+    fetchFilteredPokemon(type) {
+      if (!type) {
+        this.fecthPokemon(this.endpoint);
+      } else {
+        const url = `${endpoint}?eq[type1]=${type}`;
+        this.fecthPokemon(url);
+        console.log(type);
+      }
     }
   },
   created() {
@@ -26,7 +35,7 @@ export default {
 
 <template>
   <div class="container">
-    <AppHeader :types="pokemonTypes" />
+    <AppHeader :types="pokemonTypes" @select-type="fetchFilteredPokemon" />
     <AppMain />
   </div>
 </template>

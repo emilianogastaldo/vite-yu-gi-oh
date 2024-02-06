@@ -14,18 +14,12 @@ export default {
 
 <template>
     <main>
-        <div class="container">
-            <div class="row row-cols-lg-5 py-4 g-4 my-3">
-                <div class="col" v-for="pokemon in store.listPokemon">
-                    <PokemonCard :pokemon="pokemon" />
-                </div>
+        <div class="row row-cols-lg-5 py-4 g-4 my-3">
+            <div class="col" v-for="pokemon in store.listPokemon">
+                <PokemonCard :pokemon="pokemon" />
             </div>
         </div>
     </main>
 </template>
 
-<style lang="scss" scoped>
-main {
-    background-color: aquamarine;
-}
-</style>
+<style lang="scss" scoped></style>

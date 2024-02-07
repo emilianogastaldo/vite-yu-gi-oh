@@ -17,14 +17,10 @@ export default {
         store.listPokemon = res.data.docs;
       }).catch(err => { console.err(err) })
     },
+    // guarda lezione 7/2 ora 10:15 
     fetchFilteredPokemon(type) {
-      if (!type) {
-        this.fecthPokemon(this.endpoint);
-      } else {
-        const url = `${endpoint}?eq[type1]=${type}`;
-        this.fecthPokemon(url);
-        console.log(type);
-      }
+      const url = type ? `${endpoint}?eq[type1]=${type}` : this.endpoint
+      this.fecthPokemon(url);
     }
   },
   created() {

@@ -15,7 +15,7 @@ export default {
     fecthPokemon(url) {
       axios.get(url).then(res => {
         store.listPokemon = res.data.docs;
-      })
+      }).catch(err => { console.err(err) })
     },
     fetchFilteredPokemon(type) {
       if (!type) {
